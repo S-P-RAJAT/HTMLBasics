@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-wodth">
-      <title>Basic input types</title>
-      <link rel="stylesheet" href="../css/sample_form.css">
-  </head>  
-  <body>
-      <form>
-        <header class="headerContainer"><h1>HTML 5 Form Input Fields</h1></header>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-wodth">
+    <title>Basic input types</title>
+    <link rel="stylesheet" href="../css/sample_form.css">
+</head>
+
+<body>
+    <form>
+        <header class="headerContainer">
+            <h1>HTML 5 Form Input Fields</h1>
+        </header>
         <div>
             <label for="name">text input type for Name:</label>
             <input type="text" id="name" name="name">
@@ -21,6 +25,7 @@
         <div>
             <label for="email">email input type:</label>
             <input type="email" id="email" name="email">
+            <error-output class="email-error" for="email"></error-output>
         </div>
         <div>
             <label for="url">url input type:</label>
@@ -45,31 +50,41 @@
         </div>
         <div>
             <label for="salary">Choose your salary:</label>
-            <input type="range" name="salary" id="salary" min="300000" 
-                   max="500000" step="100" value="400000">
-                   <output class="salary-output" for="salary">400000</output>
+            <input type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000">
+            <output class="salary-output" for="salary">400000</output>
         </div>
         <div>
             <button>Submit</button>
         </div>
-      </form>
-      <script>
-          const salary = document.querySelector('#salary');
-          const output = document.querySelector('.salary-output');
-          output.textContent = salary.value;
-          salary.addEventListener('input',function(){
+    </form>
+    <script>
+        const salary = document.querySelector('#salary');
+        const output = document.querySelector('.salary-output');
+        output.textContent = salary.value;
+        salary.addEventListener('input', function () {
             output.textContent = salary.value;
-          }); 
-          
-          const name = document.querySelector('#name');
-          const nameError = document.querySelector('.name-error');
-          name.addEventListener('input',function(){
-          let nameRegex = RegExp('^[A-Z][a-zA-Z]{2,}$')
-          if(nameRegex.test(name.value))
-          nameError.textContent = "";
-          else
-          nameError.textContent = "Name is incorrect";
-          });
-      </script>
-  </body>
-</html> 
+        });
+
+        const name = document.querySelector('#name');
+        const nameError = document.querySelector('.name-error');
+        name.addEventListener('input', function () {
+            let nameRegex = RegExp('^[A-Z][a-zA-Z]{2,}$')
+            if (nameRegex.test(name.value))
+                nameError.textContent = "";
+            else
+                nameError.textContent = "Name is incorrect";
+        });
+
+        const email = document.querySelector('#email');
+        const emailError = document.querySelector('.email-error');
+        email.addEventListener('input', function () {
+            let emailRegex = RegExp('^[a-z]+([.]?[a-z0-9_+-]+)?@[a-z1-9]+[.][a-z]{2,}([.][a-z]{2,})?$');
+            if (emailRegex.test(email.value))
+                emailError.textContent = "";
+            else
+                emailError.textContent = "Email is incorrect";
+        });
+    </script>
+</body>
+
+</html>
