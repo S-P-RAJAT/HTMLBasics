@@ -38,6 +38,7 @@
         <div>
             <label for="tel">tel input type:</label>
             <input type="tel" id="tel" name="tel">
+            <error-output class="tel-error" for="tel"></error-output>
         </div>
         <div>
             <label for="search">search input type:</label>
@@ -78,12 +79,22 @@
         const email = document.querySelector('#email');
         const emailError = document.querySelector('.email-error');
         email.addEventListener('input', function () {
-            let emailRegex = RegExp('^[a-z]+([.]?[a-z0-9_+-]+)?@[a-z1-9]+[.][a-z]{2,}([.][a-z]{2,})?$');
+            let emailRegex = RegExp('^[a-z]+([.]?[a-z0-9_+-]+)?@[a-z1-9]{2,63}[.][a-z]{2,4}([.][a-z]{2,})?$');
             if (emailRegex.test(email.value))
                 emailError.textContent = "";
             else
                 emailError.textContent = "Email is incorrect";
         });
+
+        const tel = document.querySelector('#tel');
+          const telError = document.querySelector('.tel-error');
+          tel.addEventListener('input',function(){
+          let telRegex = RegExp('^\\d{0,3} ?\\d{10}$');
+          if(telRegex.test(tel.value))
+          telError.textContent = "";
+          else
+          telError.textContent = "Telephone no is incorrect";
+          });
     </script>
 </body>
 
