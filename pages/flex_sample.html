@@ -4,9 +4,24 @@
 <head>
     <meta charset="utf-8">
     <title>My flex page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+        }
         body {
             padding: 2em;
+            height: 100vh;
+            font-size: 16px;
+        }
+        .main{
+            display: flex;
+            flex-flow: column nowrap;
+            height: 100%;
+            flex-shrink: 2;
+            flex:1;
         }
 
         .headerContainer {
@@ -16,6 +31,7 @@
             background: tomato;
             font-weight: bold;
             padding: 10px;
+            flex-grow: 1;
         }
 
         .mainContainer {
@@ -23,6 +39,7 @@
             flex-flow: row wrap;
             font-weight: bold;
             text-align: center;
+            flex-grow: 10;
         }
 
         .footerContainer {
@@ -32,6 +49,7 @@
             background: lightgreen;
             font-weight: bold;
             padding: 10px;
+            flex-grow: 1;
         }
 
         .mainContentItem {
@@ -44,7 +62,7 @@
             margin: 10px;
             background: aqua;
         }
-
+    
         .sideBarLeftItem {
             background: gold;
         }
@@ -77,49 +95,51 @@
 </head>
 
 <body>
-    <header class="headerContainer">
-        <h1>Header - Sample Flexbox Example</h1>
-    </header>
-    <div class="mainContainer">
-        <section class="mainContentItem">
-            <article>
-                <h2>First article</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type and scrambled it to make a type
-                    specimen book.</p>
-            </article>
-            <article>
-                <h2>Second article</h2>
-                <p>It has survived not only five centuries, but also the leap into
-                    electronic typesetting, remaining essentially unchanged. It was popularised in
-                    the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                    and more recently with desktop publishing software like Aldus PageMaker
-                    including versions of Lorem Ipsum.</p>
-            </article>
-            <article>
-                <h2>Third article</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua.</p>
+    <div class="main">
+        <header class="headerContainer">
+            <h1>Header - Sample Flexbox Example</h1>
+        </header>
+        <div class="mainContainer">
+            <section class="mainContentItem">
+                <article>
+                    <h2>First article</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and scrambled it to make a type
+                        specimen book.</p>
+                </article>
+                <article>
+                    <h2>Second article</h2>
+                    <p>It has survived not only five centuries, but also the leap into
+                        electronic typesetting, remaining essentially unchanged. It was popularised in
+                        the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                        and more recently with desktop publishing software like Aldus PageMaker
+                        including versions of Lorem Ipsum.</p>
+                </article>
+                <article>
+                    <h2>Third article</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua.</p>
 
-                <p>Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                </p>
-            </article>
-        </section>
-        <sideBar class="sideBarItem sideBarLeftItem">
-            <div class="center">
-                <p>Left Side Bar</P>
-            </div>
-        </sideBar>
-        <sideBar class="sideBarItem sideBarRightItem">
-            <div class="center">
-                <p>Right Side Bar</P>
-            </div>
-        </sideBar>
+                    <p>Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    </p>
+                </article>
+            </section>
+            <sideBar class="sideBarItem sideBarLeftItem">
+                <div class="center">
+                    <p>Left Side Bar</P>
+                </div>
+            </sideBar>
+            <sideBar class="sideBarItem sideBarRightItem">
+                <div class="center">
+                    <p>Right Side Bar</P>
+                </div>
+            </sideBar>
+        </div>
+        <footer class="footerContainer">Footer</footer>
     </div>
-    <footer class="footerContainer">Footer</footer>
 </body>
 
 </html>
